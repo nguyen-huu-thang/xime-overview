@@ -42,6 +42,8 @@ Service tái sử dụng, độc lập nghiệp vụ: viết một lần, dùng 
 | **[Trust Service](https://github.com/nguyen-huu-thang/trust-service)** | Hạ tầng tin cậy: CA nội bộ, mTLS, khóa ký JWT | `Java` |
 | **[Identity Service](https://github.com/nguyen-huu-thang/identity-service)** | Xác thực: cấp JWT, refresh token & xoay vòng | `Java` |
 | **[User Service](https://github.com/nguyen-huu-thang/user-service)** | Human Identity Domain: credential, hồ sơ, trạng thái tài khoản | `Java` |
+| **[Application Service](https://github.com/nguyen-huu-thang/application-service)** | Application Identity Domain: registry, lifecycle & quyền hệ thống cho subject APPLICATION | `Java` |
+| **[Agent Service](https://github.com/nguyen-huu-thang/agent-service)** | Non-Human Identity Domain: credential, lifecycle & luồng JWT cho subject BOT và AI_AGENT | `Java` |
 | **[Data Service](https://github.com/nguyen-huu-thang/data-service)** | Lưu trữ object phân tán, phân quyền theo capability | `Python` |
 | **[Notification Service](https://github.com/nguyen-huu-thang/notification-service)** | Gửi thông báo ra ngoài (email trước, SMS sau): stateless | `Python` |
 
@@ -52,17 +54,18 @@ Service tái sử dụng, độc lập nghiệp vụ: viết một lần, dùng 
 ## 🏗️ Cách mọi thứ ghép lại
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│  Application Layer   social · ecommerce · SaaS / AI  [dự kiến] │
-└──────────────────────────────────────────────────────────────┘
-                          ▲  tái sử dụng
-┌──────────────────────────────────────────────────────────────┐
-│  Base Platform   trust · identity · user · data · notification │
-└──────────────────────────────────────────────────────────────┘
-                          ▲  xây dựng bằng
-┌──────────────────────────────────────────────────────────────┐
-│  Frameworks   Spring Boot (Java)  ·  Xime (Python)             │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Application Layer   social · ecommerce · SaaS / AI  [dự kiến]               │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  tái sử dụng
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Base Platform                                                                │
+│  trust · identity · user · application · agent · data · notification         │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  xây dựng bằng
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Frameworks   Spring Boot (Java)  ·  Xime (Python)                           │
+└──────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **Một nền móng backend xây một lần, dùng lại cho nhiều sản phẩm**: ưu tiên phân tán, shared-nothing, scale ngang, multi-tenant và chịu lỗi tốt.
@@ -71,7 +74,7 @@ Mỗi service được viết bằng ngôn ngữ phù hợp nhất với đặc 
 
 | Ngôn ngữ | Phù hợp cho | Service |
 | :--- | :--- | :--- |
-| **Java** (Spring Boot) | nặng giao dịch, trọng bảo mật | trust · identity · user · payment |
+| **Java** (Spring Boot) | nặng giao dịch, trọng bảo mật | trust · identity · user · application · agent · payment |
 | **Python** (Xime) | IO-bound, bất đồng bộ, AI / dữ liệu | data · notification · search · analytics |
 | **Go** *(dự kiến)* | realtime, streaming, video | phát trực tiếp · cuộc gọi video |
 

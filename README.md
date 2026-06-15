@@ -42,6 +42,8 @@ Reusable, business-agnostic services: written once, reused across every applicat
 | **[Trust Service](https://github.com/nguyen-huu-thang/trust-service)** | Trust infrastructure: internal CA, mTLS, JWT signing keys | `Java` |
 | **[Identity Service](https://github.com/nguyen-huu-thang/identity-service)** | Authentication: JWT issuance, refresh tokens & rotation | `Java` |
 | **[User Service](https://github.com/nguyen-huu-thang/user-service)** | Human Identity Domain: credentials, profile, account state | `Java` |
+| **[Application Service](https://github.com/nguyen-huu-thang/application-service)** | Application Identity Domain: registry, lifecycle & system permissions for APPLICATION subjects | `Java` |
+| **[Agent Service](https://github.com/nguyen-huu-thang/agent-service)** | Non-Human Identity Domain: credentials, lifecycle & JWT flow for BOT and AI_AGENT subjects | `Java` |
 | **[Data Service](https://github.com/nguyen-huu-thang/data-service)** | Distributed object storage with capability-based permissions | `Python` |
 | **[Notification Service](https://github.com/nguyen-huu-thang/notification-service)** | Outbound notifications (email first, SMS later): stateless | `Python` |
 
@@ -52,17 +54,18 @@ Reusable, business-agnostic services: written once, reused across every applicat
 ## 🏗️ How it fits together
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│  Application Layer   social · ecommerce · SaaS / AI  [planned] │
-└──────────────────────────────────────────────────────────────┘
-                          ▲  reuses
-┌──────────────────────────────────────────────────────────────┐
-│  Base Platform   trust · identity · user · data · notification │
-└──────────────────────────────────────────────────────────────┘
-                          ▲  built with
-┌──────────────────────────────────────────────────────────────┐
-│  Frameworks   Spring Boot (Java)  ·  Xime (Python)             │
-└──────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Application Layer   social · ecommerce · SaaS / AI  [planned]               │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  reuses
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Base Platform                                                                │
+│  trust · identity · user · application · agent · data · notification         │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  built with
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Frameworks   Spring Boot (Java)  ·  Xime (Python)                           │
+└──────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **A backend foundation you build once and reuse across many products**: distributed-first, shared-nothing, horizontally scalable, multi-tenant and failure-tolerant.
@@ -71,7 +74,7 @@ Each service is written in the language that best fits its workload:
 
 | Language | Best for | Services |
 | :--- | :--- | :--- |
-| **Java** (Spring Boot) | transaction-heavy, security-critical | trust · identity · user · payment |
+| **Java** (Spring Boot) | transaction-heavy, security-critical | trust · identity · user · application · agent · payment |
 | **Python** (Xime) | IO-bound, async, AI / data | data · notification · search · analytics |
 | **Go** *(planned)* | realtime, streaming, video | live streaming · video calls |
 

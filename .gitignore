@@ -1,1 +1,6 @@
-.claude
+# Trước 2026-08-03 file này chặn `.claude` vì repo từng được đẩy lên GitHub công khai.
+# Chủ dự án chốt 2026-08-03: repo nay dùng cho kinh doanh, KHÔNG công khai nữa, nên
+# tài liệu trong `.claude/` đi theo git cùng code.
+#
+# Đừng thêm lại `.claude` hay `CLAUDE.md` vào đây.
+# Secret thì vẫn chặn như thường lệ (application.yml, alembic.ini, .env, .bootstrap, .pem, .key).

@@ -47,7 +47,9 @@ Reusable, business-agnostic services: written once, reused across every applicat
 | **[Data Service](https://github.com/nguyen-huu-thang/data-service)** | Distributed object storage with capability-based permissions | `Python` |
 | **[Notification Service](https://github.com/nguyen-huu-thang/notification-service)** | Outbound notifications (email first, SMS later): stateless | `Python` |
 
-> 🛠️ Also planned: **Payment**, **Search** and **Analytics** services (not yet public).
+> 🛠️ **Built, repository not yet public:** **Payment** (subscriptions, double-entry ledger, certificate-based callback routing) and **Organization** (shared company/business identity).
+>
+> 🔭 Also planned: **Search** and **Analytics** services.
 
 ---
 
@@ -55,12 +57,17 @@ Reusable, business-agnostic services: written once, reused across every applicat
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  Application Layer   social · ecommerce · SaaS / AI  [planned]               │
+│  Application Layer   industry-specific SaaS applications                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  embeds screens from
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Shared Services   attendance · cashbook · tasks · CRM · inventory           │
 └──────────────────────────────────────────────────────────────────────────────┘
                                    ▲  reuses
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  Base Platform                                                                │
-│  trust · identity · user · application · agent · data · notification         │
+│  trust · identity · user · application · agent · organization                │
+│  data · notification · payment                                                │
 └──────────────────────────────────────────────────────────────────────────────┘
                                    ▲  built with
 ┌──────────────────────────────────────────────────────────────────────────────┐

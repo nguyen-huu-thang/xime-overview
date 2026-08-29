@@ -47,7 +47,9 @@ Service tái sử dụng, độc lập nghiệp vụ: viết một lần, dùng 
 | **[Data Service](https://github.com/nguyen-huu-thang/data-service)** | Lưu trữ object phân tán, phân quyền theo capability | `Python` |
 | **[Notification Service](https://github.com/nguyen-huu-thang/notification-service)** | Gửi thông báo ra ngoài (email trước, SMS sau): stateless | `Python` |
 
-> 🛠️ Đang dự kiến: service **Payment**, **Search** và **Analytics** (chưa công khai).
+> 🛠️ **Đã có code, repo chưa công khai:** **Payment** (thanh toán: thuê bao, ledger ghi kép, định tuyến callback theo chứng chỉ) và **Organization** (định danh công ty/doanh nghiệp dùng chung).
+>
+> 🔭 Đang dự kiến: **Search** và **Analytics**.
 
 ---
 
@@ -55,12 +57,17 @@ Service tái sử dụng, độc lập nghiệp vụ: viết một lần, dùng 
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  Application Layer   social · ecommerce · SaaS / AI  [dự kiến]               │
+│  Application Layer   các ứng dụng SaaS theo ngành                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+                                   ▲  nhúng màn hình
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Service ngang   chấm công · sổ thu chi · giao việc · CRM · kho              │
 └──────────────────────────────────────────────────────────────────────────────┘
                                    ▲  tái sử dụng
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  Base Platform                                                                │
-│  trust · identity · user · application · agent · data · notification         │
+│  trust · identity · user · application · agent · organization                │
+│  data · notification · payment                                                │
 └──────────────────────────────────────────────────────────────────────────────┘
                                    ▲  xây dựng bằng
 ┌──────────────────────────────────────────────────────────────────────────────┐

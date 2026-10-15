@@ -1,6 +1,33 @@
-# Trước 2026-08-03 file này chặn `.claude` vì repo từng được đẩy lên GitHub công khai.
-# Chủ dự án chốt 2026-08-03: repo nay dùng cho kinh doanh, KHÔNG công khai nữa, nên
-# tài liệu trong `.claude/` đi theo git cùng code.
-#
-# Đừng thêm lại `.claude` hay `CLAUDE.md` vào đây.
-# Secret thì vẫn chặn như thường lệ (application.yml, alembic.ini, .env, .bootstrap, .pem, .key).
+# Repo giới thiệu công khai: chỉ công bố các mục được cho phép dưới đây.
+# Khi thêm tài liệu hoặc tài nguyên công khai, bổ sung vào danh sách này.
+/*
+!/.gitignore
+!/README.md
+!/README-vn.md
+!/assets/
+
+# Chỉ công bố các ảnh nhận diện đã chọn.
+/assets/*
+!/assets/xime-wordmark.png
+!/assets/xime-wordmark-white.png
+
+# Giữ hướng dẫn agent và memory trên máy, không đưa vào repo công khai.
+.claude/
+.codex/
+AGENTS.md
+CLAUDE.md
+
+# Cấu hình cục bộ, chứng chỉ và khóa riêng không phải tài nguyên công khai.
+.env
+.env.*
+*.bootstrap
+*.pem
+*.key
+*.p12
+*.pfx
+application.yml
+application.yaml
+alembic.ini
+
+# .gitignore không loại file đã được track hoặc xóa nội dung trong commit cũ.
+# Cần kiểm tra cả danh sách file theo dõi và lịch sử trước khi push.
